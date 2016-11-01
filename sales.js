@@ -4,16 +4,35 @@ function addItem()
 {
   var newItem;
   newItem = document.getElementById("price").value;
+if(isNaN(newItem)){
   //IF newItem is not a number
   // THEN show an alert: "Enter price as a number"
-  //OTHERWISE,
-  // update newItem to its value cast as a number
-  // update runningTotal to be its value plus newItem
+	window.alert("Enter price as a number");
+	console.log("if");
+}else{
+console.log(newItem);
+console.log("else");
+newItem = Number(newItem);
+ // update runningTotal to be its value plus newItem
+runningTotal += newItem;
   // create a variable called dollars
+var dollars;
+
   // call asCurrency() by with the value of runningTotal and assign the return value to dollars
+dollars = asCurrency(runningTotal);
   // update the innerHTML of the span with the id "subtotal" to be dollars
+document.getElementById("subtotal").innerHTML = dollars;
   // update the value of the input with the id "price" to be an empty string
+document.getElementById("price").value = "";
   // update a cookie called "preTax" with the value of runningTotal
+
+var preTax = getCookie("preTax");
+console.log(preTax);
+console.log(runningTotal);
+var runningTotalstring = runningTotal.toString();
+console.log(runningTotalstring);
+setCookie(getCookie("preTax"), runningTotalstring , 2);
+}
 }
 
 //takes a number and gives a string with the number displayed as USD currency
