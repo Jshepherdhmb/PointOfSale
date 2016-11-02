@@ -34,7 +34,16 @@ console.log(runningTotalstring);
 setCookie(getCookie("preTax"), runningTotalstring , 2);
 }
 }
+//Calculates the Receipt
+function calculateReceipt(){
+var receipt = 2.57;
+document.getElementById("sub").innerHTML = "$ " + receipt.toFixed(2);
+var receiptTax = + (receipt * .075);
+document.getElementById("tax").innerHTML = "$ " + receiptTax.toFixed(2);
+var receiptTotal = (receiptTax + Receipt);
+document.getElementById("tot").innerHTML = "$ " + receiptTotal.toFixed(2);
 
+}
 //takes a number and gives a string with the number displayed as USD currency
 function asCurrency(val)
 {
