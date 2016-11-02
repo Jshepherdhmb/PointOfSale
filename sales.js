@@ -38,9 +38,9 @@ setCookie(getCookie("preTax"), runningTotalstring , 2);
 function calculateReceipt(){
 var receipt = 2.57;
 document.getElementById("sub").innerHTML = "$" + receipt.toFixed(2);
-var receiptTax = + (receipt * .075);
+var receiptTax = receipt * .075;
 document.getElementById("tax").innerHTML = "$" + receiptTax.toFixed(2);
-var receiptTotal = (receiptTax + Receipt);
+var receiptTotal = receiptTax + receipt;
 document.getElementById("tot").innerHTML = "$" + receiptTotal.toFixed(2);
 
 }
