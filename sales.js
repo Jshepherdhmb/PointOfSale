@@ -25,18 +25,19 @@ document.getElementById("subtotal").innerHTML = dollars;
   // update the value of the input with the id "price" to be an empty string
 document.getElementById("price").value = "";
   // update a cookie called "preTax" with the value of runningTotal
-
-var preTax = getCookie("preTax");
-console.log(preTax);
+//console.log(preTax);
 console.log(runningTotal);
-var runningTotalstring = runningTotal.toString();
-console.log(runningTotalstring);
-setCookie(getCookie("preTax"), runningTotalstring , 2);
+setCookie("preTax", runningTotal, 2);
+var preTax = getCookie("preTax");
+
+console.log(preTax);
 }
 }
 //Calculates the Receipt
 function calculateReceipt(){
-var receipt = 2.57;
+var receipt = getCookie("preTax");
+receipt = Number(receipt);
+console.log("Calc Receipt cookie= " + receipt);
 document.getElementById("sub").innerHTML = "$" + receipt.toFixed(2);
 var receiptTax = receipt * .075;
 document.getElementById("tax").innerHTML = "$" + receiptTax.toFixed(2);
